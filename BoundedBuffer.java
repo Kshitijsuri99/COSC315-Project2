@@ -16,7 +16,7 @@ public class BoundedBuffer<T>{
             System.out.println(e);
         }
         add(item);
-        notifyAll();
+        notify();
     }
 
     private synchronized void add(T item){
@@ -27,7 +27,7 @@ public class BoundedBuffer<T>{
         ++itemCount;
     }
 
-    public synchronized T removeItem(T item){
+    public synchronized T removeItem(){
         try{
             while(isEmpty()){
                 wait();
@@ -36,7 +36,7 @@ public class BoundedBuffer<T>{
             System.out.println(e);
         }
         T element = remove();
-        notifyAll();
+        notify();
         return element;
     }
 
