@@ -1,0 +1,60 @@
+public class BoundedBuffer<T>{
+
+    private final Object[] buffer;
+    private int insertIndex, removeIndex, itemCount;
+
+    public BoundedBuffer(int bound){
+        buffer = new Object[bound];
+    }
+
+    public synchronized void addItem(T item){
+        try{
+            while(isFull()){
+                wait();
+            }
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        add(item);
+        notifyAll();
+    }
+
+    private synchronized void add(T item){
+        buffer[insertIndex] = item;
+        if(++insertIndex == buffer.length){
+            insertIndex = 0;
+        }
+        ++itemCount;
+    }
+
+    public synchronized T removeItem(T item){
+        try{
+            while(isEmpty()){
+                wait();
+            }
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        T element = remove();
+        notifyAll();
+        return element;
+    }
+
+    private synchronized T remove(){
+        T element = (T) buffer[removeIndex];
+        if (++removeIndex == buffer.length) { 
+            removeIndex = 0; 
+        } 
+        --itemCount;
+        return element;
+
+    }
+
+    public synchronized boolean isFull() {
+        return itemCount == buffer.length;
+    }
+
+    public synchronized boolean isEmpty() {
+        return itemCount == 0;
+    }
+}
