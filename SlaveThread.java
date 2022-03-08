@@ -13,10 +13,10 @@ class SlaveThread<T> extends Thread {
             try{
                 int[] request = sharedBuffer.removeItem();
                 
-                System.out.println("Consumer "+ slaveId +": assigned request ID " + request[0] +", prcessing request for the next "+ request[1] +" seconds,");
+                System.out.println("\nConsumer "+ slaveId +": assigned request ID " + request[0] +", prcessing request for the next "+ request[1] +" seconds,");
                 System.out.println("Current Time is:" + java.time.LocalTime.now());
                 sleep(request[1]);
-                System.out.println("Consumer "+ slaveId +": completed request ID " + request[0] +",at time " + java.time.LocalTime.now());
+                System.out.println("Consumer "+ slaveId +": completed request ID " + request[0] +", at time " + java.time.LocalTime.now()+"\n");
             } catch (Exception e){
                 System.out.println(e);
             }

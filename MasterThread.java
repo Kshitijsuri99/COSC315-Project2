@@ -20,11 +20,11 @@ class MasterThread<T> extends Thread {
                 int requestLength = random.nextInt(maxRequestLength) + 1;
                 
                 int[] item = {requestId++, requestLength};
-                System.out.println("Producer: produced request ID " + requestId +",length " + requestLength + " seconds at time " + java.time.LocalTime.now());
+                System.out.println("\nProducer: produced request ID " + requestId +",length " + requestLength + " seconds at time " + java.time.LocalTime.now());
 
                 sharedBuffer.addItem(item);
 
-                System.out.println("Sleeping for " + sleepDuration/1000 + " seconds");
+                System.out.println("Sleeping for " + sleepDuration/1000 + " seconds\n");
                 sleep(sleepDuration);
 
             } catch (Exception e){
