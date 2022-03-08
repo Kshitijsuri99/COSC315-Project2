@@ -1,12 +1,14 @@
 public class BoundedBuffer<T>{
 
-    private final Object[] buffer;
+    // Create an object buffer
+    private final Object[] buffer; 
     private int insertIndex, removeIndex, itemCount;
 
     public BoundedBuffer(int bound){
         buffer = new Object[bound];
     }
 
+    // Monitor addItem fn to add items to buffer
     public synchronized void addItem(T item){
         try{
             while(isFull()){
@@ -19,6 +21,7 @@ public class BoundedBuffer<T>{
         notify();
     }
 
+    // Helper fn to add items and increase item count
     private synchronized void add(T item){
         buffer[insertIndex] = item;
         if(++insertIndex == buffer.length){
@@ -27,6 +30,7 @@ public class BoundedBuffer<T>{
         ++itemCount;
     }
 
+    // Monitor removeItem fn to remove items from buffer
     public synchronized T removeItem(){
         try{
             while(isEmpty()){
@@ -40,6 +44,7 @@ public class BoundedBuffer<T>{
         return element;
     }
 
+    // Helper fn to remove items and decrease item count
     private synchronized T remove(){
         T element = (T) buffer[removeIndex];
         if (++removeIndex == buffer.length) { 
