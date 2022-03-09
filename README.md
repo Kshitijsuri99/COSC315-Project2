@@ -21,8 +21,10 @@ Solving this problem in Java was quite a bit easier than the C/C++ implementatio
 <strong>Java Implementation</strong>
 
 <img src="imgs/java_ss1.png">
-<i>Entering arguments into RequestScheduler.java</i> </br></br></br>
-
+<i>Entering arguments into RequestScheduler.java</i> </br></br>
 <img src="imgs/java_ss2.png">
 <i>RequestScheduler.java running</i> </br></br>
 
+<strong>C/C++ Implementation</strong>
+<img src="imgs/c_ss.png">
+<i>producerConsumerProblem.c running</i> </br></br>
