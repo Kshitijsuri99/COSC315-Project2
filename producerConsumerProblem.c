@@ -65,12 +65,12 @@ void *consumer(void *argv){
 int main()
 {
  	pthread_t producers;
-    pthread_t consumers;
+    	pthread_t consumers;
 	pthread_mutex_init(&mutex, NULL);
 	sem_init(&empty, 0, size);
 	sem_init(&full, 0, 0);
 	pthread_create(&producers, NULL, (void *)producer, NULL);
-    pthread_join(producers, NULL);
+    	pthread_join(producers, NULL);
 	pthread_create(&consumers, NULL, (void *)consumer, NULL);
 	pthread_join(consumers, NULL);
 }
