@@ -1,8 +1,8 @@
 # COSC315 Mini Project2
 
 Developed By:
-Florencia Chomski
-Kshitij Suri
+Florencia Chomski,
+Kshitij Suri &
 Ahmad Raza Jamal 
 
 ### <strong> Build Instructions (How to Compile the Code!) </strong>
