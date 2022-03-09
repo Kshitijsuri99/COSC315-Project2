@@ -1,5 +1,10 @@
 # COSC315 Mini Project2
 
+Developed By:
+Florencia Chomski
+Kshitij Suri
+Ahmad Raza Jamal 
+
 ### <strong> Build Instructions (How to Compile the Code!) </strong>
 <strong>Java Implementation</strong>\
 In order to build the Java implementation of this mini project 2, simply run the java compiler from within Visual Studio Code for the RequestScheduler.java file. </br></br>
